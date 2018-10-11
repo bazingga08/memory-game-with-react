@@ -1,0 +1,170 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GAME</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="icon" href="icon.jfif" type="image/x-icon">
+</head>
+<script src="D:\Documents\GitHub\game\easytimer.js"></script>
+<script>
+    var timerInstance = new Timer();
+    let count = 0;
+    var fimg ;
+    var fimgr;
+    var fimg1;
+    var fimgr1;
+    var c1;
+    var c2;
+    var timer;
+   
+    timer=new Timer();
+    timer.start();
+    timer.addEventListener('secondsUpdated', function (e) {
+    var yy=timer.getTimeValues().toString();
+    document.getElementById("time1").innerHTML =yy;
+});
+    function flip(param) {
+        num = parseInt(param, 10);
+
+        count++;
+     
+
+        if (count == 1) {
+    
+            fimg = num + "flipimg";
+            fimgr = num + "flipimgrev";
+            
+            document.getElementById(fimg).style.display = "block";
+            document.getElementById(fimgr).style.display = "none";
+          
+            x=document.getElementById(fimg);
+            c1=x.getAttribute('value');
+           
+        }
+
+         else if (count == 2) 
+         {
+             fimg1 = num + 'flipimg';
+             fimgr1 = num + 'flipimgrev';
+            document.getElementById(fimg1).style.display = "block";
+            document.getElementById(fimgr1).style.display = "none";
+            y=document.getElementById(fimg1);
+            c2=y.getAttribute('value');
+            if (c1 !== c2)
+            {
+                document.getElementById(fimg).style.display = "none";
+                document.getElementById(fimgr).style.display = "block";
+                document.getElementById(fimg1).style.display = "none";
+                document.getElementById(fimgr1).style.display = "block";
+            } 
+            
+            else
+            {
+                
+
+
+                 document.getElementById(fimg).style.display = "block";
+                document.getElementById(fimgr).style.display = "none";
+                document.getElementById(fimg1).style.display = "block";
+                document.getElementById(fimgr1).style.display = "none";
+            }
+            count = 0;
+        } 
+        
+        else 
+        {
+            
+            document.getElementById(fimg).style.display = "none";
+            document.getElementById(fimgr).style.display = "block";
+        }
+
+
+
+    }
+</script>
+
+<body>
+        <h1  class="title">BLACKJACK</a></h1>
+    <section class="contained">
+        <div class="card" id="a1" onclick="flip('1flipimgrev')">
+            <div class="cardfront">
+                <img src="back.jpeg" id="1flipimgrev" value="1" class="imagestylef">
+            </div>
+            <div class="cardback">
+                <img src="ace.png" id="1flipimg" value="1" class="imagestyleb">
+            </div>
+        </div>
+
+        <div class="card" id="a2" onclick="flip('21flipimgrev')">
+            <div class="cardfront">
+                <img src="back.jpeg" id="21flipimgrev" value="1" class="imagestylef">
+            </div>
+            <div class="cardback">
+                <img src="ace.png" id="21flipimg" value="1" class="imagestyleb">
+            </div>
+        </div>
+
+        <div class="card" id="a3" onclick="flip('2flipimgrev')">
+                <div class="cardfront">
+                    <img src="back.jpeg" id="2flipimgrev" value="2" class="imagestylef">
+                </div>
+                <div class="cardback">
+                    <img src="hea.png" id="2flipimg" value="2" class="imagestyleb">
+                </div>
+            </div>
+    
+            <div class="card" id="a4" onclick="flip('22flipimgrev')">
+                <div class="cardfront">
+                    <img src="back.jpeg" id="22flipimgrev" value="2" class="imagestylef">
+                </div>
+                <div class="cardback">
+                    <img src="hea.png" id="22flipimg" value="2" class="imagestyleb">
+                </div>
+            </div>
+            <div class="card" id="a5" onclick="flip('3flipimgrev')">
+                    <div class="cardfront">
+                        <img src="back.jpeg" id="3flipimgrev" value="3" class="imagestylef">
+                    </div>
+                    <div class="cardback">
+                        <img src="clu.png" id="3flipimg" value="3" class="imagestyleb">
+                    </div>
+                </div>
+        
+                <div class="card" id="a6" onclick="flip('32flipimgrev')">
+                    <div class="cardfront">
+                        <img src="back.jpeg" id="32flipimgrev" value="3" class="imagestylef">
+                    </div>
+                    <div class="cardback">
+                        <img src="clu.png" id="32flipimg" value="3" class="imagestyleb">
+                    </div>
+                </div>
+
+                <div class="card" id="a7" onclick="flip('4flipimgrev')">
+                        <div class="cardfront">
+                            <img src="back.jpeg" id="4flipimgrev" value="4" class="imagestylef">
+                        </div>
+                        <div class="cardback">
+                            <img src="dim.png" id="4flipimg" value="4" class="imagestyleb">
+                        </div>
+                    </div>
+            
+                    <div class="card" id="a8" onclick="flip('42flipimgrev')">
+                        <div class="cardfront">
+                            <img src="back.jpeg" id="42flipimgrev" value="4" class="imagestylef">
+                        </div>
+                        <div class="cardback">
+                            <img src="dim.png" id="42flipimg" value="4" class="imagestyleb">
+                        </div>
+                    </div>
+    </section>
+    <h3  class="timclas">Time : <a id="time1"> 00:00:00</a></h3>
+</body>
+<script> 
+
+    
+        for(i=1;i<=8;i++)
+        {
+            document.getElementById("a"+i).style.order = Math.floor((Math.random() * 8) + 1);
+        }
+        </script>
+</html>
